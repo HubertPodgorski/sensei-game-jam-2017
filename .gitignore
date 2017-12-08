@@ -1,0 +1,59 @@
+# =============== #
+# Unity generated #
+# =============== #
+AmongTheStarsUnity/Library
+AmongTheStarsUnity/Temp
+AmongTheStarsUnity/Out
+AmongTheStarsUnity/*.sln
+AmongTheStarsUnity/*.csproj
+AmongTheStarsUnity/*.userprefs
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+bin/
+obj/
+*.userprefs
+.suo
+
+# =============== #
+# Rider generated #
+# =============== #
+workspace.xml
+AmongTheStarsUnity/Assets/Plugins/Editor/JetBrains
+AmongTheStarsUnity/Assets/Plugins/Editor/JetBrains.meta
+AmongTheStarsUnity/Assets/Plugins/Editor.meta
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*.pyc
+*.pyc.meta
+
+# Event sourcing default
+events.storage
+metadata.storage
+.idea
+
+# vim
+*.swp
+
+# Build scripts generated
+AmongTheStarsUnity/Assets/Resources/Version.txt
+AmongTheStarsUnity/Assets/Resources/Version.txt.meta
+
+# Steam Native Platform API
+AmongTheStarsUnity/libsteam_api.dylib
+AmongTheStarsUnity/libsteam_api.so
+AmongTheStarsUnity/libsteam_api64.so
+AmongTheStarsUnity/steam_api.dll
+AmongTheStarsUnity/steam_api64.dll
+AmongTheStarsUnity/steam_appid.txt
