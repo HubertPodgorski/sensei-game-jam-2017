@@ -1,0 +1,59 @@
+# =============== #
+# Unity generated #
+# =============== #
+SenseiGameJam2017/Library
+SenseiGameJam2017/Temp
+SenseiGameJam2017/Out
+SenseiGameJam2017/*.sln
+SenseiGameJam2017/*.csproj
+SenseiGameJam2017/*.userprefs
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+bin/
+obj/
+*.userprefs
+.suo
+
+# =============== #
+# Rider generated #
+# =============== #
+workspace.xml
+SenseiGameJam2017/Assets/Plugins/Editor/JetBrains
+SenseiGameJam2017/Assets/Plugins/Editor/JetBrains.meta
+SenseiGameJam2017/Assets/Plugins/Editor.meta
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*.pyc
+*.pyc.meta
+
+# Event sourcing default
+events.storage
+metadata.storage
+.idea
+
+# vim
+*.swp
+
+# Build scripts generated
+SenseiGameJam2017/Assets/Resources/Version.txt
+SenseiGameJam2017/Assets/Resources/Version.txt.meta
+
+# Steam Native Platform API
+SenseiGameJam2017/libsteam_api.dylib
+SenseiGameJam2017/libsteam_api.so
+SenseiGameJam2017/libsteam_api64.so
+SenseiGameJam2017/steam_api.dll
+SenseiGameJam2017/steam_api64.dll
+SenseiGameJam2017/steam_appid.txt
