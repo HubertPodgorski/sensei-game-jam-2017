@@ -11,9 +11,6 @@ public class Enemy : MonoBehaviour {
     float timer = 0;
 
 
-    void Start() {
-        startRotation = transform.rotation;
-    }
 	// Update is called once per frame
 	void Update () {
 		if(behaviourType == EnemyBehaciourType.FoundPlayer) {
