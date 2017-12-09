@@ -8,20 +8,25 @@ public class TimeController : MonoBehaviour {
 	private ArrayList rotation = new ArrayList();
 	private ArrayList velocity = new ArrayList();
     public ArrayList shots = new ArrayList();
+    public DestroyedBullet destroyedBullet;
 
     private int MovementIndex = 0;
-	public static bool rewinding;
+    private int DestroyedIndex = 0;
+    public static bool rewinding = false;
 	public bool useForce = true;
 
 	public Rigidbody rb;
+    bool wasUsedGravity;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
+        wasUsedGravity = rb.useGravity;
     }
 
 	void LateUpdate ()
 	{
-		if (useForce) {
+
+        if (useForce) {
 			if (Input.GetKey("f")) {
 				rb.AddForce (Random.Range(-150f,150f), Random.Range(-150f,150f), Random.Range(-150f,150f)); 
 			}
@@ -40,10 +45,13 @@ public class TimeController : MonoBehaviour {
 			MovementIndex = Movements.Count;	
 		}
 
-		if(Input.GetKey("e")) {
+		if(Input.GetKeyDown("e")) 
 			rewinding = true;
-			RewindTime();
-		} else {
+		
+        if(rewinding)
+            RewindTime();
+
+        if (Input.GetKeyDown("f")) {
 			rewinding = false;
 		}
 	}
@@ -62,9 +70,22 @@ public class TimeController : MonoBehaviour {
 			rotation.RemoveAt (MovementIndex);
 			velocity.RemoveAt (MovementIndex);
 		}
+        else {
+            rb.useGravity = wasUsedGravity;
+            MovementIndex = 0;
+            if (gameObject.tag == "Player")
+                rewinding = false;
+        }
 
-		if (MovementIndex < 0) {
-			MovementIndex = 0;
-		} 
+        if (destroyedBullet != null) {
+            if (UIHelper.timer < destroyedBullet.time) {
+                destroyedBullet.bullet.GetComponent<TimeController>().enabled = true;
+                destroyedBullet.bullet.GetComponent<CapsuleCollider>().enabled = true;
+                destroyedBullet.bullet.GetComponent<MeshRenderer>().enabled = true;
+                destroyedBullet.bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                destroyedBullet = null;
+            }
+        }
+        
 	}
 }

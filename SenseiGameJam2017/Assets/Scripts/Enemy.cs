@@ -14,14 +14,16 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(behaviourType == EnemyBehaciourType.FoundPlayer) {
-            RotateTowardsEnemy();
-            Shoot();
+        if(!TimeController.rewinding) {
+            if (behaviourType == EnemyBehaciourType.FoundPlayer) {
+                RotateTowardsEnemy();
+                Shoot();
 
-            timer -= Time.deltaTime;
-        }
-        else{
-            SearchForEnemy();
+                timer -= Time.deltaTime;
+            }
+            else {
+                SearchForEnemy();
+            }
         }
 	}
 

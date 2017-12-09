@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	public WeaponType weaponType;
 	public Vector3 cameraTransform = new Vector3(-10, 15, -10);
     TimeController timeController;
-    float timer;
+
 	void Awake () {
 		playerCamera = FindObjectOfType<Camera>();
         timeController = GetComponent<TimeController>();
@@ -20,12 +20,12 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		HandlePlayerMovemenet();
-		HandleCameraMovement();
-		HandlePlayerPointingRotation();
-		StartCoroutine(HandleBulletShoot());
-        timer += Time.deltaTime;
-
+        if(!TimeController.rewinding) {
+            HandlePlayerMovemenet();
+            HandleCameraMovement();
+            HandlePlayerPointingRotation();
+            StartCoroutine(HandleBulletShoot());
+        }
     }
 
 	void LateUpdate() {
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	IEnumerator HandleBulletShoot() {
 		if (Input.GetMouseButtonDown(0)) {
-            timeController.shots.Add(timer);
+            timeController.shots.Add(UIHelper.timer);
 
             if (weaponType == WeaponType.ar) {
 				for (var i = 0; i <= 2; i++) {
