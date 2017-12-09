@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour {
     public float attackCooldown;
     float timer = 0;
 
+
+    void Start() {
+        startRotation = transform.rotation;
+    }
 	// Update is called once per frame
 	void Update () {
 		if(behaviourType == EnemyBehaciourType.FoundPlayer) {
@@ -18,22 +22,29 @@ public class Enemy : MonoBehaviour {
 
             timer -= Time.deltaTime;
         }
-        else {
+        else{
             SearchForEnemy();
         }
 	}
 
     void SearchForEnemy() {
-        Vector3 direction = Player.transform.position - transform.position;
-        float angle = Vector3.Angle(direction, transform.forward);
+        if(Player && Vector3.Distance(Player.transform.position, transform.position) <= DrawFieldOfView.dist_max) {
+            Vector3 direction = Player.transform.position - transform.position;
+            float angle = Vector3.Angle(direction, transform.forward);
 
-        if (angle < 50) {
-            behaviourType = EnemyBehaciourType.FoundPlayer;
+            if (angle < 50) {
+                behaviourType = EnemyBehaciourType.FoundPlayer;
+            }
         }
     }
 
     void RotateTowardsEnemy() {
-        transform.LookAt(Player.transform);
+        if (Player) {
+            transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
+            if (Vector3.Distance(Player.transform.position, transform.position) > DrawFieldOfView.dist_max) {
+                behaviourType = EnemyBehaciourType.Idle;
+            }
+        }
     }
 
     void Shoot() {
