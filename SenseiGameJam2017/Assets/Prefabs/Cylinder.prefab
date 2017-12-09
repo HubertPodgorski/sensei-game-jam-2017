@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33111361610754216}
   - component: {fileID: 135631992507203754}
   - component: {fileID: 23028884090583188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 54562440212468980}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750885382079960}
   m_LocalRotation: {x: 0, y: -0.13856816, z: 0, w: 0.9903529}
-  m_LocalPosition: {x: 0, y: -1.6, z: 0.1}
+  m_LocalPosition: {x: 0, y: -0.17, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4681906100982218}
@@ -286,11 +286,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298f42fb049ce864dbeae9f90a5424d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementSpeed: 0.2
+  playerMovementSpeed: 10
   bulletPrefab: {fileID: 1130894694879550, guid: b1f76b3267ca1e841a956d04493893df,
     type: 2}
   bulletSourcePosition: {fileID: 1872651182123882}
   weaponType: 1
+  cameraTransform: {x: 0, y: 20, z: -15}
 --- !u!135 &135631992507203754
 SphereCollider:
   m_ObjectHideFlags: 1

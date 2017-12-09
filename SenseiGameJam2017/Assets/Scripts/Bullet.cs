@@ -14,4 +14,16 @@ public class Bullet : MonoBehaviour {
 	void DestroyBullet() {
 		Destroy(transform.parent.gameObject);
 	}
+
+	void OnTriggerEnter(Collider collider) {
+		Destroy(transform.parent.gameObject);
+		
+		if (collider.tag == "Map") {
+			Destroy(transform.parent.gameObject);
+		}
+
+		if (collider.tag == "Player") {
+			Destroy(transform.parent.gameObject);
+		}
+	}
 }
