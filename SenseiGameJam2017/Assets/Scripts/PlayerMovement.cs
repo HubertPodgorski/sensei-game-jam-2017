@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-	private static float playerMovementSpeed = 0.2f;
+	public float playerMovementSpeed = 0.2f;
 	private static float playerRotateSpeed = 30f;
 	private Camera playerCamera;
 	public GameObject bulletPrefab;
@@ -22,8 +22,15 @@ public class PlayerMovement : MonoBehaviour {
 		StartCoroutine(HandleBulletShoot());
 	}
 
+	void LateUpdate() {
+		transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+		transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+	}
+
 	void HandlePlayerMovemenet() {
 		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal"), 0f, playerMovementSpeed * Input.GetAxis("Vertical"), Space.World);
+	
+		//GetComponent<Rigidbody>().AddForce(new Vector3(playerMovementSpeed * Input.GetAxis("Horizontal"), 0f, playerMovementSpeed * Input.GetAxis("Vertical")), ForceMode.Force);
 	}
 
 	void HandlePlayerPointingRotation() {
@@ -45,7 +52,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void HandleCameraMovement() {
-		playerCamera.transform.position = transform.position + new Vector3(0, 10, -10);
+		playerCamera.transform.position = transform.position + new Vector3(0, 40, -10);
 	}
 
 	IEnumerator HandleBulletShoot() {
