@@ -9,6 +9,7 @@ TagManager:
   - startingPoint1
   - startingPoint2
   - startingPoint3
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - po
   - bullet
-  - 
+  - bulletEnemy
   - 
   - 
   - 
