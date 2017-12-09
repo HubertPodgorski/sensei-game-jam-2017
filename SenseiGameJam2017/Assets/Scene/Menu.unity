@@ -460,6 +460,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 156928130}
+--- !u!1 &677571624 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: 1708f2ee4e04f0f44afa95c213da34cf, type: 3}
+  m_PrefabInternal: {fileID: 1300033479}
+--- !u!64 &677571628
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677571624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 1708f2ee4e04f0f44afa95c213da34cf, type: 3}
 --- !u!1 &862723357
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,13 +796,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262788918}
-  m_LocalRotation: {x: 0.41389728, y: -0, z: -0, w: 0.9103236}
+  m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
   m_LocalPosition: {x: 0, y: 15.88, z: -14.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 48.9, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
 --- !u!1001 &1300033479
 Prefab:
   m_ObjectHideFlags: 0
@@ -856,7 +874,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4051011524807112, guid: 349fa424b38188b4ab5fa739ab884397, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.13856816
       objectReference: {fileID: 0}
     - target: {fileID: 4051011524807112, guid: 349fa424b38188b4ab5fa739ab884397, type: 2}
       propertyPath: m_LocalRotation.z
@@ -864,7 +882,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4051011524807112, guid: 349fa424b38188b4ab5fa739ab884397, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9903529
       objectReference: {fileID: 0}
     - target: {fileID: 4051011524807112, guid: 349fa424b38188b4ab5fa739ab884397, type: 2}
       propertyPath: m_RootOrder
