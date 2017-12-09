@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void HandlePlayerMovemenet() {
-		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal"), 0f, playerMovementSpeed * Input.GetAxis("Vertical"), Space.World);	
+		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, playerMovementSpeed * Input.GetAxis("Vertical") * Time.deltaTime, Space.World);	
 	}
 
 	void HandlePlayerPointingRotation() {
