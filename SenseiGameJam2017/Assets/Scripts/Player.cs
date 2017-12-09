@@ -9,15 +9,23 @@ public class Player : MonoBehaviour {
 		if (collider.CompareTag("Bullet")) {
 			// destroy bullet on hit
             Destroy(collider.transform.parent.gameObject);
+			
+			var damage = 10;
+			health -= damage;
+			if (health <= 0) {
+				Die();
+			}
         }
-		var damage = 10;
-		health -= damage;
-		if (health <= 0) {
-			Die();
-		}
 	}
 
 	void Die() {
         Destroy(gameObject);
     }
+	
+	public void setPlayerPosition(Vector3 position) {
+		transform.position = position;
+	}
+
+	void Update() {
+	}
 }

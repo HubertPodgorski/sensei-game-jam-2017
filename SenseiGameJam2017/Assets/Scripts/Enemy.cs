@@ -14,14 +14,16 @@ public class Enemy : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(behaviourType == EnemyBehaciourType.FoundPlayer) {
-            RotateTowardsEnemy();
-            Shoot();
+        if(!TimeController.rewinding) {
+            if (behaviourType == EnemyBehaciourType.FoundPlayer) {
+                RotateTowardsEnemy();
+                Shoot();
 
-            timer -= Time.deltaTime;
-        }
-        else{
-            SearchForEnemy();
+                timer -= Time.deltaTime;
+            }
+            else {
+                SearchForEnemy();
+            }
         }
 	}
 
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour {
 
     void Shoot() {
         if (timer <= 0) {
+            Debug.Log("shoot");
             Instantiate(bulletPrefab, bulletSource.transform.position, transform.rotation);
             timer = attackCooldown;
         }
