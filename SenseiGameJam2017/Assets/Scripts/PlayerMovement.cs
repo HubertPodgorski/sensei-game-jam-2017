@@ -29,9 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void HandlePlayerMovemenet() {
-		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal"), 0f, playerMovementSpeed * Input.GetAxis("Vertical"), Space.World);
-	
-		//GetComponent<Rigidbody>().AddForce(new Vector3(playerMovementSpeed * Input.GetAxis("Horizontal"), 0f, playerMovementSpeed * Input.GetAxis("Vertical")), ForceMode.Force);
+		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal"), 0f, playerMovementSpeed * Input.GetAxis("Vertical"), Space.World);	
 	}
 
 	void HandlePlayerPointingRotation() {
