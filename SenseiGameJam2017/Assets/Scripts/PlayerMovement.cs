@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void HandleCameraMovement() {
-		playerCamera.transform.position = transform.position + new Vector3(0, 10, -10);
+		var cameraHeight = 10;
+		var positionFromBack = 10;
+		playerCamera.transform.position = transform.position + new Vector3(0, cameraHeight, -positionFromBack);
 	}
 }
