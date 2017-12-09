@@ -11,8 +11,11 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject bulletSourcePosition;
 	public WeaponType weaponType;
 	public Vector3 cameraTransform = new Vector3(-10, 15, -10);
-	void Start () {
+    TimeController timeController;
+    float timer;
+	void Awake () {
 		playerCamera = FindObjectOfType<Camera>();
+        timeController = GetComponent<TimeController>();
 	}
 	
 	// Update is called once per frame
@@ -21,7 +24,9 @@ public class PlayerMovement : MonoBehaviour {
 		HandleCameraMovement();
 		HandlePlayerPointingRotation();
 		StartCoroutine(HandleBulletShoot());
-	}
+        timer += Time.deltaTime;
+
+    }
 
 	void LateUpdate() {
 		transform.position = new Vector3(transform.position.x, 0, transform.position.z);
@@ -56,7 +61,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	IEnumerator HandleBulletShoot() {
 		if (Input.GetMouseButtonDown(0)) {
-			if (weaponType == WeaponType.ar) {
+            timeController.shots.Add(timer);
+
+            if (weaponType == WeaponType.ar) {
 				for (var i = 0; i <= 2; i++) {
 					Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
 					yield return new WaitForSeconds(0.03f);

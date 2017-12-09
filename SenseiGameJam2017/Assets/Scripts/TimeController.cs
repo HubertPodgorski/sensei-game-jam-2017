@@ -7,14 +7,19 @@ public class TimeController : MonoBehaviour {
 	private ArrayList Movements = new ArrayList();
 	private ArrayList rotation = new ArrayList();
 	private ArrayList velocity = new ArrayList();
+    public ArrayList shots = new ArrayList();
 
-	private int MovementIndex = 0;
-	private bool rewinding;
+    private int MovementIndex = 0;
+	public static bool rewinding;
 	public bool useForce = true;
 
 	public Rigidbody rb;
 
-	void Update ()
+    void Awake() {
+        rb = GetComponent<Rigidbody>();
+    }
+
+	void LateUpdate ()
 	{
 		if (useForce) {
 			if (Input.GetKey("f")) {
@@ -25,7 +30,7 @@ public class TimeController : MonoBehaviour {
 		if (!rewinding) {
 
 			Movements.Add (transform.position);
-			rotation.Add (transform.eulerAngles);
+			rotation.Add (transform.rotation);
 			velocity.Add (rb.velocity);
 
 			MovementIndex++;
@@ -41,17 +46,16 @@ public class TimeController : MonoBehaviour {
 		} else {
 			rewinding = false;
 		}
-
-		Debug.Log (MovementIndex);
 	}
 
 	void RewindTime () {
 		MovementIndex--;
+        rb.velocity = Vector2.zero;
 
-		if (MovementIndex > 0) {
+		if (MovementIndex >= 0) {
 			
 			transform.position = (Vector3) Movements[MovementIndex];
-			transform.eulerAngles = (Vector3) rotation[MovementIndex];
+			transform.rotation = (Quaternion) rotation[MovementIndex];
 			rb.velocity = (Vector3) velocity [MovementIndex];
 
 			Movements.RemoveAt (MovementIndex);
