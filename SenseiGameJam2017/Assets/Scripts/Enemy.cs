@@ -2,60 +2,91 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
     public EnemyBehaciourType behaviourType;
     public GameObject bulletPrefab;
     public GameObject bulletSource;
     public GameObject Player;
     public float attackCooldown;
     float timer = 0;
+    private int health = 100;
 
 
-    void Start() {
-        startRotation = transform.rotation;
+    void Start()
+    {
+        // startRotation = transform.rotation;
     }
-	// Update is called once per frame
-	void Update () {
-		if(behaviourType == EnemyBehaciourType.FoundPlayer) {
+    // Update is called once per frame
+    void Update()
+    {
+        if (behaviourType == EnemyBehaciourType.FoundPlayer)
+        {
             RotateTowardsEnemy();
             Shoot();
 
             timer -= Time.deltaTime;
         }
-        else{
+        else
+        {
             SearchForEnemy();
         }
-	}
+    }
 
-    void SearchForEnemy() {
-        if(Player && Vector3.Distance(Player.transform.position, transform.position) <= DrawFieldOfView.dist_max) {
+    void SearchForEnemy()
+    {
+        if (Player && Vector3.Distance(Player.transform.position, transform.position) <= DrawFieldOfView.dist_max)
+        {
             Vector3 direction = Player.transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
 
-            if (angle < 50) {
+            if (angle < 50)
+            {
                 behaviourType = EnemyBehaciourType.FoundPlayer;
             }
         }
     }
 
-    void RotateTowardsEnemy() {
-        if (Player) {
+    void RotateTowardsEnemy()
+    {
+        if (Player)
+        {
             transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
-            if (Vector3.Distance(Player.transform.position, transform.position) > DrawFieldOfView.dist_max) {
+            if (Vector3.Distance(Player.transform.position, transform.position) > DrawFieldOfView.dist_max)
+            {
                 behaviourType = EnemyBehaciourType.Idle;
             }
         }
     }
 
-    void Shoot() {
-        if (timer <= 0) {
+    void Shoot()
+    {
+        if (timer <= 0)
+        {
             Instantiate(bulletPrefab, bulletSource.transform.position, transform.rotation);
             timer = attackCooldown;
         }
     }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        var damage;
+        if (behaviourType == EnemyBehaciourType.Idle) {
+            if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.ar) {
+
+            }
+            if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.handgun) {
+                
+            }
+            if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.shotgun) {
+                
+            }
+        }
+    }
 }
 
-public enum EnemyBehaciourType {
+public enum EnemyBehaciourType
+{
     Idle,
     FoundPlayer,
 }
