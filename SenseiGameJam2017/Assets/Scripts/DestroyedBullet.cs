@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class DestroyedBullet {
     public float time;
-    public Transform transform;
+    public Vector3 position;
+    public Quaternion rotation;
     public GameObject bullet;
 
-    public DestroyedBullet(float t, Transform tr, GameObject go) {
+    public DestroyedBullet(float t, Vector3 p, Quaternion q, GameObject go) {
         time = t;
-        transform = tr;
+        position = p;
+        rotation = q;
         bullet = go;
     }
 }

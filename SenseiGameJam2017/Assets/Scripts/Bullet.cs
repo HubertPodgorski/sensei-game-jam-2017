@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider collider) {
         if(!TimeController.rewinding) {
             if (collider.tag != "Enemy") {
-                timeController.destroyedBullet = new DestroyedBullet(UIHelper.timer, transform, gameObject);
+                timeController.destroyedBullet = new DestroyedBullet(MainSystem.timer, transform.position, transform.rotation, gameObject);
                 TurnOff();
             }
         }

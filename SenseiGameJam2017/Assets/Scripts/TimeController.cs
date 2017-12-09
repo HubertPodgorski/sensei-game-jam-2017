@@ -6,10 +6,12 @@ public class TimeController : MonoBehaviour {
 
 	private ArrayList Movements = new ArrayList();
 	private ArrayList rotation = new ArrayList();
-    public ArrayList shots = new ArrayList();
+    public List<DestroyedBullet> shots = new List<DestroyedBullet>();
     public DestroyedBullet destroyedBullet;
 
-    private int MovementIndex = 0;
+    public int MovementIndex = 0;
+    public int ReplayIndex = 0;
+    public int ShotIndex = 0;
     private int DestroyedIndex = 0;
     public static bool rewinding = false;
 	public bool useForce = true;
@@ -57,24 +59,23 @@ public class TimeController : MonoBehaviour {
 			transform.position = (Vector3) Movements[MovementIndex];
 			transform.rotation = (Quaternion) rotation[MovementIndex];
 
-			Movements.RemoveAt (MovementIndex);
-			rotation.RemoveAt (MovementIndex);
+            if(gameObject.tag != "Player") {
+                Movements.RemoveAt(MovementIndex);
+                rotation.RemoveAt(MovementIndex);
+            }
+			
 
             if(MovementIndex == 0) {
                 rb.useGravity = wasUsedGravity;
-                if (gameObject.tag == "Player")
-                    rewinding = false;
             }
 		}
         else {
             rb.useGravity = wasUsedGravity;
             MovementIndex = 0;
-            if (gameObject.tag == "Player")
-                rewinding = false;
         }
 
         if (destroyedBullet != null) {
-            if (UIHelper.timer < destroyedBullet.time) {
+            if (MainSystem.timer < destroyedBullet.time) {
                 destroyedBullet.bullet.GetComponent<TimeController>().enabled = true;
                 destroyedBullet.bullet.GetComponent<CapsuleCollider>().enabled = true;
                 destroyedBullet.bullet.GetComponent<MeshRenderer>().enabled = true;
@@ -82,6 +83,20 @@ public class TimeController : MonoBehaviour {
                 destroyedBullet = null;
             }
         }
-        
 	}
+
+    public void ReplayTime() {
+        rb.useGravity = wasUsedGravity;
+        ReplayIndex++;
+
+        if (ReplayIndex < Movements.Count) {
+            transform.position = (Vector3)Movements[ReplayIndex];
+            transform.rotation = (Quaternion)rotation[ReplayIndex];
+        }
+
+        if(MainSystem.timer > shots[ShotIndex].time) {
+            GetComponent<PlayerMovement>().Shot(shots[ShotIndex]);
+            ShotIndex++;
+        }
+    }
 }

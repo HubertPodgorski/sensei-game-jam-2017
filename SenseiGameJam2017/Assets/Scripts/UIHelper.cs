@@ -5,15 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIHelper : MonoBehaviour {
 
-    public static float timer;
 
-    void LateUpdate() {
-        if (!TimeController.rewinding)
-            timer += Time.deltaTime;
-        else
-            timer -= Time.deltaTime;
-
-    }
     public void StartNewGame() {
 		Debug.Log ("Next Level");
         SceneManager.LoadScene(1);
