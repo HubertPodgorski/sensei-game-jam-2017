@@ -7,10 +7,10 @@ public class DrawFieldOfView : MonoBehaviour {
     Mesh mesh;
     public Material material;
 
-    float angle_fov = 40;
+    float angle_fov = 25;
 
     public float dist_min = 0.0f;
-    public static float dist_max = 10.0f;
+    public static float dist_max = 20.0f;
 
     void Start() {
         mesh = new Mesh();
