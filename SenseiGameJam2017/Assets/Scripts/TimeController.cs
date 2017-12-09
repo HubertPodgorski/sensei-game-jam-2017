@@ -6,7 +6,6 @@ public class TimeController : MonoBehaviour {
 
 	private ArrayList Movements = new ArrayList();
 	private ArrayList rotation = new ArrayList();
-	private ArrayList velocity = new ArrayList();
     public ArrayList shots = new ArrayList();
     public DestroyedBullet destroyedBullet;
 
@@ -23,20 +22,12 @@ public class TimeController : MonoBehaviour {
         wasUsedGravity = rb.useGravity;
     }
 
-	void LateUpdate ()
-	{
-
-        if (useForce) {
-			if (Input.GetKey("f")) {
-				rb.AddForce (Random.Range(-150f,150f), Random.Range(-150f,150f), Random.Range(-150f,150f)); 
-			}
-		}
-			
+	void LateUpdate () {
+        		
 		if (!rewinding) {
 
 			Movements.Add (transform.position);
 			rotation.Add (transform.rotation);
-			velocity.Add (rb.velocity);
 
 			MovementIndex++;
 		}
@@ -57,18 +48,23 @@ public class TimeController : MonoBehaviour {
 	}
 
 	void RewindTime () {
-		MovementIndex--;
+        rb.useGravity = wasUsedGravity;
+        MovementIndex--;
         rb.velocity = Vector2.zero;
 
 		if (MovementIndex >= 0) {
 			
 			transform.position = (Vector3) Movements[MovementIndex];
 			transform.rotation = (Quaternion) rotation[MovementIndex];
-			rb.velocity = (Vector3) velocity [MovementIndex];
 
 			Movements.RemoveAt (MovementIndex);
 			rotation.RemoveAt (MovementIndex);
-			velocity.RemoveAt (MovementIndex);
+
+            if(MovementIndex == 0) {
+                rb.useGravity = wasUsedGravity;
+                if (gameObject.tag == "Player")
+                    rewinding = false;
+            }
 		}
         else {
             rb.useGravity = wasUsedGravity;
