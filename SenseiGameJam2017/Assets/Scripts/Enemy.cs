@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
     public float attackCooldown;
     float timer = 0;
 
+    int health = 100;
 
 	// Update is called once per frame
 	void Update () {
