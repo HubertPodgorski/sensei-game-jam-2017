@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public GameObject bulletSourcePosition;
 	public WeaponType weaponType;
+	public Vector3 cameraTransform = new Vector3(-10, 15, -10);
 	void Start () {
 		playerCamera = FindObjectOfType<Camera>();
 	}
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void HandleCameraMovement() {
-		playerCamera.transform.position = transform.position + new Vector3(0, 40, -10);
+		playerCamera.transform.position = transform.position + cameraTransform;
 	}
 
 	IEnumerator HandleBulletShoot() {
