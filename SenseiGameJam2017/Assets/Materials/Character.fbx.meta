@@ -1,0 +1,282 @@
+fileFormatVersion: 2
+guid: 05258014ad7e89946aea0447320904e3
+timeCreated: 1512839457
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone
+    100004: Bone.001
+    100006: Bone.002
+    100008: Bone.003
+    100010: Bone.004
+    100012: Bone.005.L
+    100014: Bone.005.R
+    100016: Bone.006.L
+    100018: Bone.006.R
+    100020: Bone.007.L
+    100022: Bone.007.R
+    100024: Bone.008.L
+    100026: Bone.008.R
+    100028: Bone.009.L
+    100030: Bone.009.R
+    100032: Bone.010.L
+    100034: Bone.010.R
+    100036: Bone.011.L
+    100038: Bone.011.R
+    100040: Bone.012.L
+    100042: Bone.012.L.001
+    100044: Bone.012.L.001_end
+    100046: Bone.012.R
+    100048: Bone.012.R.001
+    100050: Bone.012.R.001_end
+    100052: Bone.013.L
+    100054: Bone.013.L.001
+    100056: Bone.013.L.001_end
+    100058: Bone.013.R
+    100060: Bone.013.R.001
+    100062: Bone.013.R.001_end
+    100064: Bone.014.L
+    100066: Bone.014.L.001
+    100068: Bone.014.L.001_end
+    100070: Bone.014.R
+    100072: Bone.014.R.001
+    100074: Bone.014.R.001_end
+    100076: Bone.015.L
+    100078: Bone.015.L.001
+    100080: Bone.015.L.001_end
+    100082: Bone.015.R
+    100084: Bone.015.R.001
+    100086: Bone.015.R.001_end
+    100088: Bone.016.L
+    100090: Bone.016.L.001
+    100092: Bone.016.L.001_end
+    100094: Bone.016.R
+    100096: Bone.016.R.001
+    100098: Bone.016.R.001_end
+    100100: Bone.017.L
+    100102: Bone.017.L_end
+    100104: Bone.017.R
+    100106: Bone.017.R_end
+    100108: Bone.018.L
+    100110: Bone.018.L_end
+    100112: Bone.018.R
+    100114: Bone.018.R_end
+    100116: Bone.019
+    100118: Bone.019_end
+    100120: Bone.021.L
+    100122: Bone.021.R
+    100124: Bone.022.L
+    100126: Bone.022.L.001
+    100128: Bone.022.L.001_end
+    100130: Bone.022.L_end
+    100132: Bone.022.R
+    100134: Bone.022.R.001
+    100136: Bone.022.R.001_end
+    100138: Bone.022.R_end
+    100140: Bone.023.L
+    100142: Bone.023.L_end
+    100144: Bone.023.R
+    100146: Bone.023.R_end
+    100148: Bone.024.L
+    100150: Bone.024.R
+    100152: Bone_end
+    100154: //RootNode
+    100156: Pistol2.mc
+    100158: RetopoGroup1.001
+    100160: Sphere.001
+    400000: Armature
+    400002: Bone
+    400004: Bone.001
+    400006: Bone.002
+    400008: Bone.003
+    400010: Bone.004
+    400012: Bone.005.L
+    400014: Bone.005.R
+    400016: Bone.006.L
+    400018: Bone.006.R
+    400020: Bone.007.L
+    400022: Bone.007.R
+    400024: Bone.008.L
+    400026: Bone.008.R
+    400028: Bone.009.L
+    400030: Bone.009.R
+    400032: Bone.010.L
+    400034: Bone.010.R
+    400036: Bone.011.L
+    400038: Bone.011.R
+    400040: Bone.012.L
+    400042: Bone.012.L.001
+    400044: Bone.012.L.001_end
+    400046: Bone.012.R
+    400048: Bone.012.R.001
+    400050: Bone.012.R.001_end
+    400052: Bone.013.L
+    400054: Bone.013.L.001
+    400056: Bone.013.L.001_end
+    400058: Bone.013.R
+    400060: Bone.013.R.001
+    400062: Bone.013.R.001_end
+    400064: Bone.014.L
+    400066: Bone.014.L.001
+    400068: Bone.014.L.001_end
+    400070: Bone.014.R
+    400072: Bone.014.R.001
+    400074: Bone.014.R.001_end
+    400076: Bone.015.L
+    400078: Bone.015.L.001
+    400080: Bone.015.L.001_end
+    400082: Bone.015.R
+    400084: Bone.015.R.001
+    400086: Bone.015.R.001_end
+    400088: Bone.016.L
+    400090: Bone.016.L.001
+    400092: Bone.016.L.001_end
+    400094: Bone.016.R
+    400096: Bone.016.R.001
+    400098: Bone.016.R.001_end
+    400100: Bone.017.L
+    400102: Bone.017.L_end
+    400104: Bone.017.R
+    400106: Bone.017.R_end
+    400108: Bone.018.L
+    400110: Bone.018.L_end
+    400112: Bone.018.R
+    400114: Bone.018.R_end
+    400116: Bone.019
+    400118: Bone.019_end
+    400120: Bone.021.L
+    400122: Bone.021.R
+    400124: Bone.022.L
+    400126: Bone.022.L.001
+    400128: Bone.022.L.001_end
+    400130: Bone.022.L_end
+    400132: Bone.022.R
+    400134: Bone.022.R.001
+    400136: Bone.022.R.001_end
+    400138: Bone.022.R_end
+    400140: Bone.023.L
+    400142: Bone.023.L_end
+    400144: Bone.023.R
+    400146: Bone.023.R_end
+    400148: Bone.024.L
+    400150: Bone.024.R
+    400152: Bone_end
+    400154: //RootNode
+    400156: Pistol2.mc
+    400158: RetopoGroup1.001
+    400160: Sphere.001
+    2300000: Pistol2.mc
+    2300002: Sphere.001
+    3300000: Pistol2.mc
+    3300002: Sphere.001
+    4300000: Sphere.001
+    4300002: Pistol2.mc
+    4300004: RetopoGroup1.001
+    7400000: Armature|Armature.001|Armature|Armature.001|Armature|Idle|Armature|Idle|
+    7400002: Armature|Armature.001|Armature|Armature.001|Armature|NiechGinie1|Armatur
+    7400004: Armature|Armature.001|Armature|Armature.001|Armature|NiechGinie|Armature
+    7400006: Armature|Armature.001|Armature|Armature.001|Armature|Run|Armature|Run|Ar
+    7400008: Armature|Armature.001|Armature|Idle|Armature|Idle
+    7400010: Armature|Armature.001|Armature|Idle|Armature|Idle.001
+    7400012: Armature|Armature.001|Armature|NiechGinie1|Armature|NiechGinie1
+    7400014: Armature|Armature.001|Armature|NiechGinie1|Armature|NiechGinie1.001
+    7400016: Armature|Armature.001|Armature|NiechGinie|Armature|NiechGinie
+    7400018: Armature|Armature.001|Armature|NiechGinie|Armature|NiechGinie.001
+    7400020: Armature|Armature.001|Armature|Run|Armature|Run
+    7400022: Armature|Armature.001|Armature|Run|Armature|Run.001
+    7400024: Armature|Idle
+    7400026: Armature|NiechGinie
+    7400028: Armature|NiechGinie1
+    7400030: Armature|Run
+    9500000: //RootNode
+    13700000: RetopoGroup1.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default.001
+    second: {fileID: 2100000, guid: 1805ee82364f29842b38be5f45adebe5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 2dc76135b0b6d4f49aad74200ba3d8cc, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

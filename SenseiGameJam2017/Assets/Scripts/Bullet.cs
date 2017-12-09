@@ -16,7 +16,6 @@ public class Bullet : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		Destroy(transform.parent.gameObject);
 		
 		if (collider.tag == "Map") {
 			Destroy(transform.parent.gameObject);
