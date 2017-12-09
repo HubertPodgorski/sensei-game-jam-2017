@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 		HandlePlayerMovemenet();
 		HandleCameraMovement();
 		HandlePlayerPointingRotation();
-		HandleBulletShoot();
+		StartCoroutine(HandleBulletShoot());
 	}
 
 	void HandlePlayerMovemenet() {
@@ -48,14 +48,16 @@ public class PlayerMovement : MonoBehaviour {
 		playerCamera.transform.position = transform.position + new Vector3(0, 10, -10);
 	}
 
-	void HandleBulletShoot() {
+	IEnumerator HandleBulletShoot() {
 		if (Input.GetMouseButtonDown(0)) {
 			if (weaponType == WeaponType.ar) {
-				Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
+				for (var i = 0; i <= 2; i++) {
+					Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
+					yield return new WaitForSeconds(0.03f);
+				}
 			}
 			if (weaponType == WeaponType.shotgun) {
 				for (var i = -2; i <= 2; i++) {
-					var bulletSpread = 2;
 					Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation * Quaternion.Euler(i * Random.Range(-2, 2), i * Random.Range(-2, 2), 0));
 				}
 			}
@@ -63,6 +65,7 @@ public class PlayerMovement : MonoBehaviour {
 				Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
 			}
 		}
+		yield return null;
 	}
 }
 

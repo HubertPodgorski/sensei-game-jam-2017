@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	public float bulletSpeed = 10;
+	public float bulletSpeed = 30;
 
 	void Start () {
         	GetComponent<Rigidbody>().AddForce(transform.up * bulletSpeed, ForceMode.Impulse);
