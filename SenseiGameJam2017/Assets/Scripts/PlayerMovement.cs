@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 	void LateUpdate() {
-		transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+		transform.position = new Vector3(transform.position.x, -0.1F, transform.position.z);
 		transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
 	}
 

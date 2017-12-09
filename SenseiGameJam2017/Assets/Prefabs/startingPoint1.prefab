@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136388435592713064}
   - component: {fileID: 23426149406835742}
   - component: {fileID: 114021966793750170}
+  - component: {fileID: 114512266435377828}
   m_Layer: 0
   m_Name: startingPoint1
   m_TagString: startingPoint2
@@ -103,6 +104,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &114512266435377828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1689125245928450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759b569e78978264ebdeb09d7d792b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!136 &136388435592713064
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -110,7 +123,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689125245928450}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

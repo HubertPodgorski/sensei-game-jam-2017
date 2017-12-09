@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33951472951992664}
   - component: {fileID: 136797201183517356}
   - component: {fileID: 23981440072374360}
+  - component: {fileID: 114910622293578928}
   m_Layer: 0
   m_Name: startingPoint3
   m_TagString: startingPoint3
@@ -83,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1650770599626746}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114910622293578928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650770599626746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759b569e78978264ebdeb09d7d792b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!136 &136797201183517356
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -90,7 +103,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1650770599626746}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
