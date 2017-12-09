@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour {
     }
 
 	void DestroyBullet() {
+        Debug.Log("Destroy");
         if (!TimeController.rewinding)
             TurnOff();
 
@@ -43,8 +44,10 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) {
         if(!TimeController.rewinding) {
-            timeController.destroyedBullet = new DestroyedBullet(UIHelper.timer, transform, gameObject);
-            TurnOff();
+            if (collider.tag != "Enemy") {
+                timeController.destroyedBullet = new DestroyedBullet(UIHelper.timer, transform, gameObject);
+                TurnOff();
+            }
         }
 	}
 }
