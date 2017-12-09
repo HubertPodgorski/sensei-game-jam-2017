@@ -20,4 +20,9 @@ public class Player : MonoBehaviour {
 	void Die() {
         Destroy(gameObject);
     }
+
+	public void setPlayerPosition(GameObject go) {
+		transform.position = go.transform.position;
+		Debug.Log("Triggered");
+	}
 }

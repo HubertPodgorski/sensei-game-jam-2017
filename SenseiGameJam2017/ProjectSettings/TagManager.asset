@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bullet
   - Map
+  - startingPoint1
+  - startingPoint2
+  - startingPoint3
   layers:
   - Default
   - TransparentFX
