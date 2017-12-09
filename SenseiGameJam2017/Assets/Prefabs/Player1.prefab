@@ -2689,6 +2689,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20022d1d0484164cb12cbe99756e9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death: {fileID: 8300000, guid: 739e5a069d34c2d4994f20a3d442c15a, type: 3}
+  booo: {fileID: 8300000, guid: ef0352e345e6d594fa259c566699dfda, type: 3}
+  painSFX:
+  - {fileID: 8300000, guid: 26cf68329588c6f41a2c013dbddc6c54, type: 3}
+  - {fileID: 8300000, guid: c53e4c3d6af7ab44fa876beac07eb0cf, type: 3}
+  - {fileID: 8300000, guid: 92703c344bd578a469a2971d16167704, type: 3}
+  - {fileID: 8300000, guid: 028be632a6981da4e8d5e61d78bfd897, type: 3}
+  - {fileID: 8300000, guid: 96e0d6402d4eb3b4387126abe8e017da, type: 3}
+  - {fileID: 8300000, guid: 47edd38ee287b6b46bc94e63edb4ffa9, type: 3}
+  heartSFX:
+  - {fileID: 8300000, guid: 9ea9de5ce3168b64c818d2aa5f7e9a08, type: 3}
+  - {fileID: 8300000, guid: 6485d76ce8d71b74da5a2598b934069a, type: 3}
+  breathSFX:
+  - {fileID: 8300000, guid: 1cc89d02881076b498065c1ccc1b303c, type: 3}
+  - {fileID: 8300000, guid: afd150121f07b894fac14ff9b0d2c03f, type: 3}
+  - {fileID: 8300000, guid: 8baae61fd2fe1644082cebf1578fdd7e, type: 3}
+  - {fileID: 8300000, guid: 08746434e7e97be428335cd84e6179b1, type: 3}
+  - {fileID: 8300000, guid: 2193182f21fedcc45acd8922101df894, type: 3}
+  - {fileID: 8300000, guid: 9008815f036b2624694b3425357e551f, type: 3}
+  - {fileID: 8300000, guid: b7c0db95c25da5e469146af76e14d98a, type: 3}
+  - {fileID: 8300000, guid: 5e4e869ab3cdca34386ecd3da22ae718, type: 3}
+  - {fileID: 8300000, guid: 5133b1d66361e3146a882e34765c8716, type: 3}
+  - {fileID: 8300000, guid: c520a6a26f72a2743bfd33358591ef27, type: 3}
+  - {fileID: 8300000, guid: 65331ad28a82ebf449f41c9b8550ccf8, type: 3}
+  - {fileID: 8300000, guid: ab7e17a7b76d7c54bb7bb7a2a74a2248, type: 3}
+  - {fileID: 8300000, guid: 095d216cdd0c02649b5a0ad26c900992, type: 3}
+  - {fileID: 8300000, guid: 6ced2aaa61810af43836a3a3441417ca, type: 3}
+  - {fileID: 8300000, guid: 46272e36b0b749b48b07854080a11b31, type: 3}
+  - {fileID: 8300000, guid: d5aeb9e25e1cf944eb916be0979b3cf5, type: 3}
+  - {fileID: 8300000, guid: ff9bc6c8ad097294593a83977147c5ad, type: 3}
+  - {fileID: 8300000, guid: 5eba2e6a6a572ba47a1640a333902393, type: 3}
+  - {fileID: 8300000, guid: bf60880771c734a43b7ba8f281e95035, type: 3}
 --- !u!114 &114427579814859660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2706,6 +2738,21 @@ MonoBehaviour:
   bulletSourcePosition: {fileID: 1602991981885130}
   weaponType: 1
   cameraTransform: {x: 0, y: 20, z: -15}
+  soundShotgun: {fileID: 8300000, guid: 6d72079ffd6e8c24b9bc5be52bab46f1, type: 3}
+  soundHandgun: {fileID: 8300000, guid: e7fad19909ca19d4c96214d30d6d815b, type: 3}
+  footstepSFX:
+  - {fileID: 8300000, guid: f026f1a450d4ff845be8d55e61ff893f, type: 3}
+  - {fileID: 8300000, guid: b65d92ff010d6cd4b9a84f53a9b03376, type: 3}
+  - {fileID: 8300000, guid: b79bfb2fbad434c4f8e6df9d69426794, type: 3}
+  - {fileID: 8300000, guid: 01bb09dff0cb9374b8fa6870b1642aca, type: 3}
+  - {fileID: 8300000, guid: abb71c505667fe944ba916733473879a, type: 3}
+  - {fileID: 8300000, guid: 602e9d1dcee8695419a66762b2ce8cf4, type: 3}
+  - {fileID: 8300000, guid: 30082ab210eb7d4429525e738dc26033, type: 3}
+  - {fileID: 8300000, guid: 24c5da26cef0e05439061007c008b832, type: 3}
+  - {fileID: 8300000, guid: a243357dfd192c345867adf9f2e1fe3f, type: 3}
+  - {fileID: 8300000, guid: c9366bb8928ed9547bff5194a57e33cc, type: 3}
+  - {fileID: 8300000, guid: ccd00b3295179974dae74d3e99475f09, type: 3}
+  - {fileID: 8300000, guid: b860f39990a1f4b42bb4fec7bdc577bb, type: 3}
 --- !u!114 &114877040263029714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2717,6 +2764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c4725b06dce4d4cacfc99a58f1f00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementIndex: 0
+  ReplayIndex: 0
+  ShotIndex: 0
   useForce: 1
   rb: {fileID: 0}
 --- !u!136 &136475638318968068

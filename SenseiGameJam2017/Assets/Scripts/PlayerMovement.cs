@@ -79,27 +79,36 @@ public class PlayerMovement : MonoBehaviour {
     
 	IEnumerator HandleBulletShoot() {
 		if (Input.GetMouseButtonDown(0)) {
-            timeController.shots.Add(UIHelper.timer);
 
             if (weaponType == WeaponType.ar) {
 				for (var i = 0; i <= 2; i++) {
 					Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
-					yield return new WaitForSeconds(0.03f);
+                    timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab));
+                    yield return new WaitForSeconds(0.03f);
 				}
 			}
+
 			if (weaponType == WeaponType.shotgun) {
 				for (var i = -2; i <= 2; i++) {
-					Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation * Quaternion.Euler(i * Random.Range(-2, 2), i * Random.Range(-2, 2), 0));
+                    Quaternion q = transform.rotation * Quaternion.Euler(i * Random.Range(-2, 2), i * Random.Range(-2, 2), 0);
+                    Instantiate(bulletPrefab, bulletSourcePosition.transform.position, q);
+                    timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, q, bulletPrefab));
                     Camera.main.GetComponent<AudioSource>().PlayOneShot(soundShotgun);
                 }
 			}
+
 			if (weaponType == WeaponType.handgun) {
 				Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
+                timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab));
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(soundHandgun);
             }
 		}
 		yield return null;
 	}
+
+    public void Shot(DestroyedBullet db) {
+        Instantiate(db.bullet, db.position, db.rotation);
+    }
 
     void RepeatFootstepSFX()
     {
