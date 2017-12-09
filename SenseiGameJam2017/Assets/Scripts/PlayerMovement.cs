@@ -13,35 +13,45 @@ public class PlayerMovement : MonoBehaviour {
 	public Vector3 cameraTransform = new Vector3(-10, 15, -10);
     TimeController timeController;
 
-	void Awake () {
+    public AudioClip soundShotgun;
+    public AudioClip soundHandgun;
+
+    private bool footstepSFXready = true;
+    public AudioClip[] footstepSFX;
+    private int footstepSFXid = 0;
+    private int repeatFootstepSFXtimer;
+
+    void Awake () {
 		playerCamera = FindObjectOfType<Camera>();
         timeController = GetComponent<TimeController>();
-
-    }
+	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(!TimeController.rewinding && MainSystem.activePlayer == gameObject) {
+        if(!TimeController.rewinding) {
             HandlePlayerMovemenet();
             HandleCameraMovement();
             HandlePlayerPointingRotation();
             StartCoroutine(HandleBulletShoot());
-        }
-        else if(!TimeController.rewinding && MainSystem.activePlayer != gameObject) {
-            timeController.ReplayTime();
         }
     }
 
 	void LateUpdate() {
 		transform.position = new Vector3(transform.position.x, -0.1F, transform.position.z);
 		transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-	}
+    }
 
 	void HandlePlayerMovemenet() {
 		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, playerMovementSpeed * Input.GetAxis("Vertical") * Time.deltaTime, Space.World);
-        if(playerMovementSpeed * Input.GetAxis("Horizontal") != 0 || playerMovementSpeed * Input.GetAxis("Vertical") != 0)
-            GetComponent<Animator>().SetBool("Run", true);
-        else GetComponent<Animator>().SetBool("Run", false);
+
+        if (footstepSFXready && ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.D)))) {
+            footstepSFXready = false;
+            Invoke("RepeatFootstepSFX", 0.5f);
+
+            footstepSFXid = Random.Range(0, footstepSFX.Length);
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(footstepSFX[footstepSFXid]);
+        }
+
     }
 
 	void HandlePlayerPointingRotation() {
@@ -66,35 +76,35 @@ public class PlayerMovement : MonoBehaviour {
 		playerCamera.transform.position = transform.position + cameraTransform;
 	}
 
+    
 	IEnumerator HandleBulletShoot() {
 		if (Input.GetMouseButtonDown(0)) {
+            timeController.shots.Add(UIHelper.timer);
+
             if (weaponType == WeaponType.ar) {
 				for (var i = 0; i <= 2; i++) {
 					Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
-                    timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, gameObject));
 					yield return new WaitForSeconds(0.03f);
 				}
 			}
 			if (weaponType == WeaponType.shotgun) {
 				for (var i = -2; i <= 2; i++) {
-                    Quaternion q = transform.rotation * Quaternion.Euler(i * Random.Range(-2, 2), i * Random.Range(-2, 2), 0);
-                    Instantiate(bulletPrefab, bulletSourcePosition.transform.position, q);
-                    timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, q, gameObject));
+					Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation * Quaternion.Euler(i * Random.Range(-2, 2), i * Random.Range(-2, 2), 0));
+                    Camera.main.GetComponent<AudioSource>().PlayOneShot(soundShotgun);
                 }
 			}
 			if (weaponType == WeaponType.handgun) {
 				Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
-                timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, gameObject));
+                Camera.main.GetComponent<AudioSource>().PlayOneShot(soundHandgun);
             }
 		}
 		yield return null;
 	}
 
-
-    public void Shot(DestroyedBullet db) {
-        Instantiate(bulletPrefab, db.position, db.rotation);
+    void RepeatFootstepSFX()
+    {
+        footstepSFXready = true;
     }
-
 }
 
 public enum WeaponType {
@@ -103,3 +113,4 @@ public enum WeaponType {
 	handgun
 
 }
+
