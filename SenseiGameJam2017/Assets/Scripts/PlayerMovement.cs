@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour {
     private int footstepSFXid = 0;
     private int repeatFootstepSFXtimer;
 
+    private bool canShotgun = true;
+
     void Awake () {
 		playerCamera = FindObjectOfType<Camera>();
         timeController = GetComponent<TimeController>();
@@ -47,6 +49,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	void HandlePlayerMovemenet() {
 		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, playerMovementSpeed * Input.GetAxis("Vertical") * Time.deltaTime, Space.World);
+
+        if(playerMovementSpeed * Input.GetAxis("Horizontal") != 0 || playerMovementSpeed * Input.GetAxis("Vertical") != 0) {
+            GetComponent<Animator>().SetBool("Run", true);
+        }
+        else GetComponent<Animator>().SetBool("Run", false);
 
         if (footstepSFXready && ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.D)))) {
             footstepSFXready = false;
@@ -92,8 +99,10 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 
-			if (weaponType == WeaponType.shotgun) {
-				for (var i = -2; i <= 2; i++) {
+            if (weaponType == WeaponType.shotgun && canShotgun) {
+                canShotgun = false;
+                Invoke("RepeatCanShotgun", 1.2f);
+                for (var i = -2; i <= 2; i++) {
                     Quaternion q = transform.rotation * Quaternion.Euler(i * Random.Range(-2, 2), i * Random.Range(-2, 2), 0);
                     Instantiate(bulletPrefab, bulletSourcePosition.transform.position, q);
                     timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, q, bulletPrefab, soundShotgun));
@@ -117,6 +126,10 @@ public class PlayerMovement : MonoBehaviour {
     void RepeatFootstepSFX()
     {
         footstepSFXready = true;
+    }
+
+    void RepeatCanShotgun() {
+        canShotgun = true;
     }
 }
 
