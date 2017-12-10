@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour {
                 SearchForEnemy();
             }
         }
+
+        Player = MainSystem.activePlayer;
 	}
 
     void SearchForEnemy() {
