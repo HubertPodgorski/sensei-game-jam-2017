@@ -10,6 +10,7 @@ public class Destructible : MonoBehaviour {
                 transform.GetChild(i).GetComponent<Rigidbody>().AddExplosionForce(150, col.transform.position, 5);
                 transform.GetChild(i).GetComponent<Rigidbody>().useGravity = true;
             }
+            GetComponent<Collider>().enabled = false;
         }
     }
 }

@@ -1773,6 +1773,7 @@ MonoBehaviour:
   - {fileID: 1452509045}
   - {fileID: 770044425}
   - {fileID: 1565156687}
+  enemies: []
   spawnedPlayers: []
 --- !u!114 &1262788926
 MonoBehaviour:
@@ -2095,7 +2096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1407679014}
   m_Layer: 10
-  m_Name: GameObject
+  m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

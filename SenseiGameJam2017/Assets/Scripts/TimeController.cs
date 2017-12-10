@@ -59,11 +59,15 @@ public class TimeController : MonoBehaviour {
 
             if(MovementIndex == 0) {
                 rb.useGravity = wasUsedGravity;
+                if (GetComponent<Collider>())
+                    GetComponent<Collider>().enabled = true;
             }
 		}
         else {
             rb.useGravity = wasUsedGravity;
             MovementIndex = 0;
+            if (GetComponent<Collider>())
+                GetComponent<Collider>().enabled = true;
         }
 
         if (destroyedBullet != null) {
@@ -72,6 +76,12 @@ public class TimeController : MonoBehaviour {
                 destroyedBullet.bullet.GetComponent<CapsuleCollider>().enabled = true;
                 destroyedBullet.bullet.GetComponent<MeshRenderer>().enabled = true;
                 destroyedBullet.bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                if(destroyedBullet.bullet.GetComponent<DrawFieldOfView>())
+                    destroyedBullet.bullet.GetComponent<DrawFieldOfView>().enabled = true;
+                if (destroyedBullet.bullet.GetComponent<Enemy>()) {
+                    destroyedBullet.bullet.GetComponent<Enemy>().enabled = true;
+                    destroyedBullet.bullet.GetComponent<Enemy>().killed = false;
+                }
                 destroyedBullet = null;
             }
         }

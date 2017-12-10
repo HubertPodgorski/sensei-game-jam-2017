@@ -12,8 +12,15 @@ public class Enemy : MonoBehaviour {
 
     int health = 100;
 
-	// Update is called once per frame
-	void Update () {
+    public bool killed = false;
+    TimeController timeController;
+
+    void Awake() {
+        timeController = GetComponent<TimeController>();
+    }
+
+    // Update is called once per frame
+    void Update () {
         if(!TimeController.rewinding) {
             if (behaviourType == EnemyBehaciourType.FoundPlayer) {
                 RotateTowardsEnemy();
@@ -89,7 +96,14 @@ public class Enemy : MonoBehaviour {
     }
 
     void Die() {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        timeController.destroyedBullet = new DestroyedBullet(MainSystem.timer, transform.position, transform.rotation, gameObject, null);
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<DrawFieldOfView>().enabled = false;
+        killed = true;
+        GetComponent<Enemy>().enabled = false;
     }
 }
 

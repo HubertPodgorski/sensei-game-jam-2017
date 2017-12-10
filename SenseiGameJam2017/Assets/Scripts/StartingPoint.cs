@@ -10,6 +10,6 @@ public class StartingPoint : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		player.GetComponent<Player>().setPlayerPosition(transform.position);
+		//player.GetComponent<Player>().setPlayerPosition(transform.position);
 	}
 }

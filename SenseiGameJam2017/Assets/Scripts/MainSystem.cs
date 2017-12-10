@@ -8,6 +8,7 @@ public class MainSystem : MonoBehaviour {
     public GameObject playerPrefab;
     public Transform[] spawnPoint;
     public static GameObject activePlayer;
+    public GameObject[] enemies;
 
     public List<TimeController> spawnedPlayers = new List<TimeController>();
     bool AND = true;
@@ -15,6 +16,7 @@ public class MainSystem : MonoBehaviour {
     void Awake() {
         spawnedPlayers.Add(GameObject.FindGameObjectWithTag("Player").GetComponent<TimeController>());
         activePlayer = spawnedPlayers[0].gameObject;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     void Update() {
@@ -47,5 +49,13 @@ public class MainSystem : MonoBehaviour {
         
 
         
+    }
+
+    public bool CheckWinCondition() {
+        bool temp = true;
+        foreach(GameObject go in enemies) {
+            temp &= go.GetComponent<Enemy>().killed;
+        }
+        return temp;
     }
 }
