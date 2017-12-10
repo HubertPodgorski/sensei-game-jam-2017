@@ -30,7 +30,6 @@ public class Bullet : MonoBehaviour {
     }
 
 	void DestroyBullet() {
-        Debug.Log("Destroy");
         if (!TimeController.rewinding)
             TurnOff();
 
@@ -45,7 +44,7 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider collider) {
         if(!TimeController.rewinding) {
             if (collider.tag != "Enemy") {
-                timeController.destroyedBullet = new DestroyedBullet(MainSystem.timer, transform.position, transform.rotation, gameObject);
+                timeController.destroyedBullet = new DestroyedBullet(MainSystem.timer, transform.position, transform.rotation, gameObject, null);
                 TurnOff();
             }
         }

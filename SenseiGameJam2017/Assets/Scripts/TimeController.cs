@@ -63,7 +63,6 @@ public class TimeController : MonoBehaviour {
                 Movements.RemoveAt(MovementIndex);
                 rotation.RemoveAt(MovementIndex);
             }
-			
 
             if(MovementIndex == 0) {
                 rb.useGravity = wasUsedGravity;
@@ -94,7 +93,7 @@ public class TimeController : MonoBehaviour {
             transform.rotation = (Quaternion)rotation[ReplayIndex];
         }
 
-        if(MainSystem.timer > shots[ShotIndex].time) {
+        if(ShotIndex < shots.Count && MainSystem.timer > shots[ShotIndex].time) {
             GetComponent<PlayerMovement>().Shot(shots[ShotIndex]);
             ShotIndex++;
         }

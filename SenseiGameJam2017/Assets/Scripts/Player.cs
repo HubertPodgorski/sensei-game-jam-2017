@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	private int health = 30;
+	public int health = 100;
 
     public AudioClip death, booo;
     public AudioClip[] painSFX;

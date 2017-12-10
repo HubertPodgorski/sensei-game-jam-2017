@@ -32,6 +32,7 @@ public class MainSystem : MonoBehaviour {
                 AND = AND && tc.MovementIndex <= 0;
                 tc.ReplayIndex = 0;
                 tc.ShotIndex = 0;
+                tc.GetComponent<Player>().health = 100;
             }
 
             if (AND) {

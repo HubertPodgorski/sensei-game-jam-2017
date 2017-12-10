@@ -49,7 +49,6 @@ public class Enemy : MonoBehaviour {
 
     void Shoot() {
         if (timer <= 0) {
-            Debug.Log("shoot");
             Instantiate(bulletPrefab, bulletSource.transform.position, transform.rotation);
             timer = attackCooldown;
         }
