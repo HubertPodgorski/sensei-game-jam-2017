@@ -7,11 +7,13 @@ public class DestroyedBullet {
     public Vector3 position;
     public Quaternion rotation;
     public GameObject bullet;
+    public AudioClip audioClip;
 
-    public DestroyedBullet(float t, Vector3 p, Quaternion q, GameObject go) {
+    public DestroyedBullet(float t, Vector3 p, Quaternion q, GameObject go, AudioClip ac) {
         time = t;
         position = p;
         rotation = q;
         bullet = go;
+        audioClip = ac;
     }
 }

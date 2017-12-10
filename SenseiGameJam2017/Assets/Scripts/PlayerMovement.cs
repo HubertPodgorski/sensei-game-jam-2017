@@ -28,11 +28,15 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!TimeController.rewinding) {
+        if(!TimeController.rewinding && MainSystem.activePlayer == gameObject) {
             HandlePlayerMovemenet();
             HandleCameraMovement();
             HandlePlayerPointingRotation();
             StartCoroutine(HandleBulletShoot());
+        }
+        else if (!TimeController.rewinding && MainSystem.activePlayer != gameObject) {
+            timeController.ReplayTime();
+            
         }
     }
 
@@ -83,7 +87,7 @@ public class PlayerMovement : MonoBehaviour {
             if (weaponType == WeaponType.ar) {
 				for (var i = 0; i <= 2; i++) {
 					Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
-                    timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab));
+                    timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab, null));
                     yield return new WaitForSeconds(0.03f);
 				}
 			}
@@ -92,14 +96,14 @@ public class PlayerMovement : MonoBehaviour {
 				for (var i = -2; i <= 2; i++) {
                     Quaternion q = transform.rotation * Quaternion.Euler(i * Random.Range(-2, 2), i * Random.Range(-2, 2), 0);
                     Instantiate(bulletPrefab, bulletSourcePosition.transform.position, q);
-                    timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, q, bulletPrefab));
+                    timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, q, bulletPrefab, soundShotgun));
                     Camera.main.GetComponent<AudioSource>().PlayOneShot(soundShotgun);
                 }
 			}
 
 			if (weaponType == WeaponType.handgun) {
 				Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
-                timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab));
+                timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab, soundHandgun));
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(soundHandgun);
             }
 		}
