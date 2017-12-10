@@ -82,6 +82,7 @@ public class TimeController : MonoBehaviour {
                 if (destroyedBullet.bullet.GetComponent<Enemy>()) {
                     destroyedBullet.bullet.GetComponent<Enemy>().enabled = true;
                     destroyedBullet.bullet.GetComponent<Enemy>().killed = false;
+                    destroyedBullet.bullet.GetComponent<Enemy>().health = 100;
                     transform.Find("Enemy/Volume81.001").GetComponent<SkinnedMeshRenderer>().enabled = true;
                 }
                 destroyedBullet = null;

@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     private int repeatFootstepSFXtimer;
 
     private bool canShotgun = true;
+    private bool canHandgun = true;
 
     void Awake () {
 		playerCamera = FindObjectOfType<Camera>();
@@ -49,9 +50,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	void HandlePlayerMovemenet() {
 		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, playerMovementSpeed * Input.GetAxis("Vertical") * Time.deltaTime, Space.World);
-
-        if(playerMovementSpeed * Input.GetAxis("Horizontal") != 0 || playerMovementSpeed * Input.GetAxis("Vertical") != 0) {
-            GetComponent<Animator>().SetBool("Run", true);
+        Animator anim = GetComponent<Animator>();
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) {
+            anim.SetBool("Run", true);
         }
         else GetComponent<Animator>().SetBool("Run", false);
 
@@ -110,8 +111,10 @@ public class PlayerMovement : MonoBehaviour {
                 }
 			}
 
-			if (weaponType == WeaponType.handgun) {
-				Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
+			if (weaponType == WeaponType.handgun && canHandgun) {
+                canHandgun = false;
+                Invoke("RepeatCanHandgun", 0.3f);
+                Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
                 timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab, soundHandgun));
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(soundHandgun);
             }
@@ -130,6 +133,9 @@ public class PlayerMovement : MonoBehaviour {
 
     void RepeatCanShotgun() {
         canShotgun = true;
+    }
+    void RepeatCanHandgun() {
+        canHandgun = true;
     }
 }
 

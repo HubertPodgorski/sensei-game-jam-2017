@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour {
     public float attackCooldown;
     float timer = 0;
     MainSystem mainSystem;
-    int health = 100;
+    public int health = 100;
 
     public bool killed = false;
     TimeController timeController;
