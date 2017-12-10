@@ -74,13 +74,15 @@ public class TimeController : MonoBehaviour {
             if (MainSystem.timer < destroyedBullet.time) {
                 destroyedBullet.bullet.GetComponent<TimeController>().enabled = true;
                 destroyedBullet.bullet.GetComponent<CapsuleCollider>().enabled = true;
-                destroyedBullet.bullet.GetComponent<MeshRenderer>().enabled = true;
+                if(destroyedBullet.bullet.GetComponent<MeshRenderer>())
+                    destroyedBullet.bullet.GetComponent<MeshRenderer>().enabled = true;
                 destroyedBullet.bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 if(destroyedBullet.bullet.GetComponent<DrawFieldOfView>())
                     destroyedBullet.bullet.GetComponent<DrawFieldOfView>().enabled = true;
                 if (destroyedBullet.bullet.GetComponent<Enemy>()) {
                     destroyedBullet.bullet.GetComponent<Enemy>().enabled = true;
                     destroyedBullet.bullet.GetComponent<Enemy>().killed = false;
+                    transform.Find("Enemy/Volume81.001").GetComponent<SkinnedMeshRenderer>().enabled = true;
                 }
                 destroyedBullet = null;
             }

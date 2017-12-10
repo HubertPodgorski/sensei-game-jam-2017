@@ -32,9 +32,12 @@ public class MainSystem : MonoBehaviour {
             AND = true;
             foreach (TimeController tc in spawnedPlayers) {
                 AND = AND && tc.MovementIndex <= 0;
-                tc.ReplayIndex = 0;
-                tc.ShotIndex = 0;
-                tc.GetComponent<Player>().health = 100;
+                if(tc) {
+                    tc.ReplayIndex = 0;
+                    tc.ShotIndex = 0;
+                    tc.GetComponent<Player>().health = 100;
+                }
+                
             }
 
             if (AND) {

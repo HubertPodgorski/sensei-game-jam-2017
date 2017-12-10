@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour {
         //Destroy(gameObject);
         timeController.destroyedBullet = new DestroyedBullet(MainSystem.timer, transform.position, transform.rotation, gameObject, null);
         GetComponent<CapsuleCollider>().enabled = false;
-        GetComponent<MeshRenderer>().enabled = false;
+        transform.Find("Enemy/Volume81.001").GetComponent<SkinnedMeshRenderer>().enabled = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<DrawFieldOfView>().enabled = false;
         killed = true;
