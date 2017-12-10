@@ -11,3 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Menu.unity
     guid: 2292dfa79c9578e458668950fa9e77f1
+  - enabled: 1
+    path: Assets/Scene/Win.unity
+    guid: a05c36c0a2023854195ca06852d543f9
+  - enabled: 1
+    path: Assets/Scene/Loose.unity
+    guid: 6b4fece72cf9c754b8f704b8017e65f5

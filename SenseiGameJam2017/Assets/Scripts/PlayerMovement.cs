@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour {
 
             if (weaponType == WeaponType.shotgun && canShotgun) {
                 canShotgun = false;
-                Invoke("RepeatCanShotgun", 1.2f);
+                Invoke("RepeatCanShotgun", 0.7f);
                 for (var i = -2; i <= 2; i++) {
                     Quaternion q = transform.rotation * Quaternion.Euler(i * Random.Range(-2, 2), i * Random.Range(-2, 2), 0);
                     Instantiate(bulletPrefab, bulletSourcePosition.transform.position, q);
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
 
 			if (weaponType == WeaponType.handgun && canHandgun) {
                 canHandgun = false;
-                Invoke("RepeatCanHandgun", 0.3f);
+                Invoke("RepeatCanHandgun", 0.2f);
                 Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
                 timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab, soundHandgun));
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(soundHandgun);
