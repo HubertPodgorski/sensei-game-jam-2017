@@ -38,15 +38,8 @@ public class TimeController : MonoBehaviour {
 			MovementIndex = Movements.Count;	
 		}
 
-		if(Input.GetKeyDown("e")) 
-			rewinding = true;
-		
         if(rewinding)
             RewindTime();
-
-        if (Input.GetKeyDown("f")) {
-			rewinding = false;
-		}
 	}
 
 	void RewindTime () {
