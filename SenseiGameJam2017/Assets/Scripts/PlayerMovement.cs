@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     private int repeatFootstepSFXtimer;
 
     private bool canShotgun = true;
+    private bool canHandgun = true;
 
     void Awake () {
 		playerCamera = FindObjectOfType<Camera>();
@@ -110,8 +111,10 @@ public class PlayerMovement : MonoBehaviour {
                 }
 			}
 
-			if (weaponType == WeaponType.handgun) {
-				Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
+			if (weaponType == WeaponType.handgun && canHandgun) {
+                canHandgun = false;
+                Invoke("RepeatCanHandgun", 0.3f);
+                Instantiate(bulletPrefab, bulletSourcePosition.transform.position, transform.rotation);
                 timeController.shots.Add(new DestroyedBullet(MainSystem.timer, bulletSourcePosition.transform.position, transform.rotation, bulletPrefab, soundHandgun));
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(soundHandgun);
             }
@@ -130,6 +133,9 @@ public class PlayerMovement : MonoBehaviour {
 
     void RepeatCanShotgun() {
         canShotgun = true;
+    }
+    void RepeatCanHandgun() {
+        canHandgun = true;
     }
 }
 

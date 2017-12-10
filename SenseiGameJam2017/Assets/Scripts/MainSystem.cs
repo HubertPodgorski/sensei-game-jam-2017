@@ -13,6 +13,9 @@ public class MainSystem : MonoBehaviour {
     public List<TimeController> spawnedPlayers = new List<TimeController>();
     bool AND = true;
 
+    public AudioClip clock;
+    private bool canClock = true;
+
     void Awake() {
         spawnedPlayers.Add(GameObject.FindGameObjectWithTag("Player").GetComponent<TimeController>());
         activePlayer = spawnedPlayers[0].gameObject;
@@ -47,14 +50,17 @@ public class MainSystem : MonoBehaviour {
             }
         }
         
-
+        if (timer > TimeOfTurn - 4 && canClock) {
+            canClock = false;
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(clock);
+            Invoke("RepeatCanClock", 9);
+        }
         
     }
 
     public void CheckWinCondition() {
-        bool temp = WinCondition();
-		Application.LoadLevel("Win");
-		Debug.Log ("Win!");
+		if(WinCondition())
+            Application.LoadLevel("Win");
     }
 
     bool WinCondition() {
@@ -63,5 +69,9 @@ public class MainSystem : MonoBehaviour {
             temp &= go.GetComponent<Enemy>().killed;
         }
         return temp;
+    }
+
+    void RepeatCanClock() {
+        canClock = true;
     }
 }
