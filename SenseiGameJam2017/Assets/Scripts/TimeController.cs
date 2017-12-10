@@ -44,7 +44,7 @@ public class TimeController : MonoBehaviour {
 
 	void RewindTime () {
         rb.useGravity = wasUsedGravity;
-        MovementIndex--;
+        MovementIndex --;
         rb.velocity = Vector2.zero;
 
 		if (MovementIndex >= 0) {
@@ -61,6 +61,8 @@ public class TimeController : MonoBehaviour {
                 rb.useGravity = wasUsedGravity;
                 if (GetComponent<Collider>())
                     GetComponent<Collider>().enabled = true;
+                if (GetComponent<Bullet>())
+                    Destroy(gameObject);
             }
 		}
         else {
@@ -68,6 +70,8 @@ public class TimeController : MonoBehaviour {
             MovementIndex = 0;
             if (GetComponent<Collider>())
                 GetComponent<Collider>().enabled = true;
+            if (GetComponent<Bullet>())
+                Destroy(gameObject);
         }
 
         if (destroyedBullet != null) {

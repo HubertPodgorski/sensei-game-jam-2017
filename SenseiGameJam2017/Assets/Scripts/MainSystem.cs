@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainSystem : MonoBehaviour {
     public static float timer;
@@ -13,6 +14,8 @@ public class MainSystem : MonoBehaviour {
     public List<TimeController> spawnedPlayers = new List<TimeController>();
     bool AND = true;
 
+    public Text timerText;
+
     public AudioClip clock;
     private bool canClock = true;
 
@@ -23,10 +26,13 @@ public class MainSystem : MonoBehaviour {
     }
 
     void Update() {
-        if (!TimeController.rewinding)
+        if (!TimeController.rewinding) {
             timer += Time.deltaTime;
-        else
+        }
+        else {
             timer -= Time.deltaTime;
+        }
+        timerText.text = (12f - timer).ToString("#.00");
 
         if (timer >= TimeOfTurn)
             TimeController.rewinding = true;

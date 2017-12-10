@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DrawFieldOfView : MonoBehaviour {
 
-    int quality = 15;
+    int quality = 5;
     Mesh mesh;
     public Material material;
 
@@ -90,6 +90,7 @@ public class DrawFieldOfView : MonoBehaviour {
         mesh.triangles = triangles;
 
         Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0);
+
     }
 
     float GetEnemyAngle() {

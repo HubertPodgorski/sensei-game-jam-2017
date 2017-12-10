@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
 	public void PlayGame () {
-		
 		Application.LoadLevel("Menu");
-		Debug.Log ("PLAY!");
 	}
 
 	public void ShowHelp() {
