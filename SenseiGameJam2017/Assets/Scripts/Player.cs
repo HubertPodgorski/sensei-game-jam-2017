@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Die() {
-        Destroy(gameObject);
+        Application.LoadLevel("Loose");
     }
 	
 	public void setPlayerPosition(Vector3 position) {
