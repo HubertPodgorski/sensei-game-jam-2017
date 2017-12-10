@@ -15,7 +15,7 @@ public class MainSystem : MonoBehaviour {
     bool AND = true;
 
     public Text timerText;
-
+    public AudioClip rewind;
     public AudioClip clock;
     private bool canClock = true;
 
@@ -32,10 +32,12 @@ public class MainSystem : MonoBehaviour {
         else {
             timer -= Time.deltaTime;
         }
-        timerText.text = (12f - timer).ToString("#.00");
+        timerText.text = (TimeOfTurn - timer).ToString("#.00");
 
-        if (timer >= TimeOfTurn)
+        if (timer >= TimeOfTurn) {
             TimeController.rewinding = true;
+            GetComponent<AudioSource>().PlayOneShot(rewind);
+        }
         
         if(TimeController.rewinding) {
             AND = true;
