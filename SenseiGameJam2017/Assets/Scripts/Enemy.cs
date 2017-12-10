@@ -40,7 +40,9 @@ public class Enemy : MonoBehaviour {
 
     void RotateTowardsEnemy() {
         if (Player) {
-            transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
+            Vector3 pos  = Player.transform.position - transform.position;
+            var newRot = Quaternion.LookRotation(pos);
+            transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.05f);
             if (Vector3.Distance(Player.transform.position, transform.position) > DrawFieldOfView.dist_max) {
                 behaviourType = EnemyBehaciourType.Idle;
             }
