@@ -35,11 +35,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4343299115759102}
   - component: {fileID: 33701253071581450}
-  - component: {fileID: 136280943987549298}
   - component: {fileID: 23846698547415224}
   - component: {fileID: 114161948236973914}
   - component: {fileID: 54879450564024926}
   - component: {fileID: 114829718746415380}
+  - component: {fileID: 135428375724543024}
   m_Layer: 9
   m_Name: BulletChild
   m_TagString: Bullet
@@ -67,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1130894694879550}
   m_LocalRotation: {x: -1, y: 0, z: 0, w: -0.000046377612}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 2.38, z: 3.62}
+  m_LocalScale: {x: 0.18923521, y: 0.18923528, z: 0.18923528}
   m_Children:
   - {fileID: 4343299115759102}
   m_Father: {fileID: 0}
@@ -88,7 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f0ceab49544e7cb40b53adcffb10040e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,7 +114,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1263289388619768}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54879450564024926
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -153,10 +153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c4725b06dce4d4cacfc99a58f1f00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementIndex: 0
+  ReplayIndex: 0
+  ShotIndex: 0
   useForce: 1
   rb: {fileID: 0}
---- !u!136 &136280943987549298
-CapsuleCollider:
+--- !u!135 &135428375724543024
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -164,7 +167,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 0.5000001
   m_Center: {x: 0, y: 0, z: 0}
