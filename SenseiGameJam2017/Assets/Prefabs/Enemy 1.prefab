@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourType: 0
-  bulletPrefab: {fileID: 1130894694879550, guid: b1f76b3267ca1e841a956d04493893df,
+  bulletPrefab: {fileID: 1130894694879550, guid: d649e9a9447c2564bbe4e970bce8dc6b,
     type: 2}
   bulletSource: {fileID: 1738524880558236}
   Player: {fileID: 0}
