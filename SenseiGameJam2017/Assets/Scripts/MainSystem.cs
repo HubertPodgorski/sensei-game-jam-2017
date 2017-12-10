@@ -53,6 +53,8 @@ public class MainSystem : MonoBehaviour {
 
     public void CheckWinCondition() {
         bool temp = WinCondition();
+		Application.LoadLevel("Win");
+		Debug.Log ("Win!");
     }
 
     bool WinCondition() {
