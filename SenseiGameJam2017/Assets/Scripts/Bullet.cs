@@ -48,5 +48,16 @@ public class Bullet : MonoBehaviour {
                 TurnOff();
             }
         }
+
+        if (collider.CompareTag("enemyShield")) {
+            timeController.destroyedBullet = new DestroyedBullet(MainSystem.timer, transform.position, transform.rotation, gameObject, null);
+            TurnOff();
+        }
+
+        if (collider.CompareTag("Enemy")) {
+            collider.GetComponent<Enemy>().DMG();
+            timeController.destroyedBullet = new DestroyedBullet(MainSystem.timer, transform.position, transform.rotation, gameObject, null);
+            TurnOff();
+        }
 	}
 }

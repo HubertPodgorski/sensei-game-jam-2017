@@ -10,6 +10,7 @@ TagManager:
   - startingPoint2
   - startingPoint3
   - Enemy
+  - enemyShield
   layers:
   - Default
   - TransparentFX
@@ -19,10 +20,10 @@ TagManager:
   - UI
   - 
   - 
+  - enemyShield
   - po
   - bullet
   - bulletEnemy
-  - 
   - 
   - 
   - 

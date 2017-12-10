@@ -81,32 +81,26 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider collider) {
-        if (collider.CompareTag("Bullet")) {
-            // destroy bullet on hit
-            Destroy(collider.transform.parent.gameObject);
+    public void DMG() {
+        if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.ar) {
+            var damage = 20;
+            health -= damage;
+            if (health <= 0) {
+                Die();
+            }
         }
-        if (behaviourType == EnemyBehaciourType.Idle) {
-            if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.ar) {
-                var damage = 20;
-                health -= damage;
-                if (health <= 0) {
-                    Die();
-                }
+        if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.handgun) {
+            var damage = 15;
+            health -= damage;
+            if (health <= 0) {
+                Die();
             }
-            if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.handgun) {
-                var damage = 15;
-                health -= damage;
-                if (health <= 0) {
-                    Die();
-                }
-            }
-            if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.shotgun) {
-                var damage = 10;
-                health -= damage;
-                if (health <= 0) {
-                    Die();
-                }
+        }
+        if (Player.GetComponent<PlayerMovement>().weaponType == WeaponType.shotgun) {
+            var damage = 10;
+            health -= damage;
+            if (health <= 0) {
+                Die();
             }
         }
     }

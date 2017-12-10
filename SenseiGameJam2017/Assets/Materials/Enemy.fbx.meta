@@ -96,7 +96,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|Idle
       takeName: Armature|Idle
-      firstFrame: 0
+      firstFrame: 97
       lastFrame: 191
       wrapMode: 0
       orientationOffsetY: 0

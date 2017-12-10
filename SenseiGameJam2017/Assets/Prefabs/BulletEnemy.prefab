@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4894383809712894}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: BulletEnemy
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114161948236973914}
   - component: {fileID: 54879450564024926}
   - component: {fileID: 114829718746415380}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: BulletChild
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4307771311369142}
   - component: {fileID: 33863503139365514}
   - component: {fileID: 23089908405581362}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
