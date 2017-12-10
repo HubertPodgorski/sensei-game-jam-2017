@@ -115,7 +115,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1626351558320662}
-  m_Mesh: {fileID: 4300000, guid: 61377969b493fba45badb785323e3bae, type: 3}
+  m_Mesh: {fileID: 4300000, guid: e8a44602d900d4646a3458db4c4b9c6b, type: 3}
 --- !u!54 &54552260641855460
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourType: 0
-  bulletPrefab: {fileID: 1130894694879550, guid: b1f76b3267ca1e841a956d04493893df,
+  bulletPrefab: {fileID: 1130894694879550, guid: d649e9a9447c2564bbe4e970bce8dc6b,
     type: 2}
   bulletSource: {fileID: 1738524880558236}
   Player: {fileID: 0}
@@ -159,6 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c4725b06dce4d4cacfc99a58f1f00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementIndex: 0
+  ReplayIndex: 0
+  ShotIndex: 0
   useForce: 1
   rb: {fileID: 0}
 --- !u!114 &114827731651588152
