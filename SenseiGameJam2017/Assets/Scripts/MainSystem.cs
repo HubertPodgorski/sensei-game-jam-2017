@@ -51,9 +51,13 @@ public class MainSystem : MonoBehaviour {
         
     }
 
-    public bool CheckWinCondition() {
+    public void CheckWinCondition() {
+        bool temp = WinCondition();
+    }
+
+    bool WinCondition() {
         bool temp = true;
-        foreach(GameObject go in enemies) {
+        foreach (GameObject go in enemies) {
             temp &= go.GetComponent<Enemy>().killed;
         }
         return temp;

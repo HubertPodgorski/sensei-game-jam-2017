@@ -9,14 +9,16 @@ public class Enemy : MonoBehaviour {
     public GameObject Player;
     public float attackCooldown;
     float timer = 0;
-
+    MainSystem mainSystem;
     int health = 100;
 
     public bool killed = false;
     TimeController timeController;
-
+    GameObject[] players;
     void Awake() {
         timeController = GetComponent<TimeController>();
+        mainSystem = GameObject.Find("Main Camera").GetComponent<MainSystem>();
+        players = GameObject.FindGameObjectsWithTag("Player");
     }
 
     // Update is called once per frame
@@ -33,7 +35,10 @@ public class Enemy : MonoBehaviour {
             }
         }
 
-        Player = MainSystem.activePlayer;
+        if(behaviourType == EnemyBehaciourType.Idle) {
+            players = GameObject.FindGameObjectsWithTag("Player");
+            LookForEnemy();
+        }
 	}
 
     void SearchForEnemy() {
@@ -56,6 +61,17 @@ public class Enemy : MonoBehaviour {
                 behaviourType = EnemyBehaciourType.Idle;
             }
         }
+    }
+
+    void LookForEnemy() {
+        float dist = float.MaxValue;
+        foreach (GameObject go in players) {
+            if(Vector3.Distance(go.transform.position, transform.position) < dist) {
+                Player = go;
+                dist = Vector3.Distance(go.transform.position, transform.position);
+            }
+        }
+
     }
 
     void Shoot() {
@@ -103,6 +119,8 @@ public class Enemy : MonoBehaviour {
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<DrawFieldOfView>().enabled = false;
         killed = true;
+
+        mainSystem.CheckWinCondition();
         GetComponent<Enemy>().enabled = false;
     }
 }
