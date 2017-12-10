@@ -49,9 +49,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	void HandlePlayerMovemenet() {
 		transform.Translate(playerMovementSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, playerMovementSpeed * Input.GetAxis("Vertical") * Time.deltaTime, Space.World);
-
-        if(playerMovementSpeed * Input.GetAxis("Horizontal") != 0 || playerMovementSpeed * Input.GetAxis("Vertical") != 0) {
-            GetComponent<Animator>().SetBool("Run", true);
+        Animator anim = GetComponent<Animator>();
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) {
+            anim.SetBool("Run", true);
         }
         else GetComponent<Animator>().SetBool("Run", false);
 
