@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 			// destroy bullet on hit
             Destroy(collider.transform.parent.gameObject);
 			
-			var damage = 10;
+			var damage = 25;
 			health -= damage;
 			if (health <= 0) {
 				Die();
